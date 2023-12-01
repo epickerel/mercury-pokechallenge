@@ -9,16 +9,14 @@ const PokeDetailView: FC = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchPokemon(id)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setPokemon(result);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    fetchPokemon(id).then(
+      (result) => {
+        setPokemon(result);
+      },
+      (error) => {
+        setError(error);
+      }
+    );
   }, [id]);
 
   // This is the final functionality I'm doing, and the data type is taking some digging.

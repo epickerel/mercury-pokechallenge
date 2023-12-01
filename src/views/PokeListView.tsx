@@ -10,16 +10,15 @@ const PokeListView: FC = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchPokemonList()
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setPokemonList(result.results);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    fetchPokemonList().then(
+      (result) => {
+        console.log(result);
+        setPokemonList(result);
+      },
+      (error) => {
+        setError(error);
+      }
+    );
   }, []);
 
   const onSearchChange = (search: string) => {

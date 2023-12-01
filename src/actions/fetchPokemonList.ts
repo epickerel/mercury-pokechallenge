@@ -7,6 +7,17 @@ import { pokeService } from "../constants";
 // Therefore, I just need to paginate the list of pokemon and cache that. For purposes of the challenge, I'll just set the limit to 1292.
 export const fetchPokemonList = () => {
   const { url, limit } = pokeService;
+  const cached = sessionStorage.getItem("pokeList");
+  if (cached) {
+    return new Promise((resolve) => {
+      resolve(JSON.parse(cached));
+    }) as Promise<Response>;
+  }
 
-  return fetch(`${url}?limit=${limit}`);
+  return fetch(`${url}?limit=${limit}`)
+    .then((res) => res.json())
+    .then((res) => {
+      sessionStorage.setItem("pokeList", JSON.stringify(res.results));
+      return res.results;
+    });
 };
