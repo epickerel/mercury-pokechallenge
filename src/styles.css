@@ -1,20 +1,87 @@
 body {
+  background-color: #f3f3f3;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #212529;
   margin: 0;
   padding: 0;
-  background: #fff;
-  color: #000;
 }
-.App {
-  font-family: sans-serif;
-  text-align: center;
+
+a {
+  color: orange;
+  text-decoration: none;
 }
+
+a:visited {
+  color: orangered;
+}
+
 ul {
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
 }
+
 li {
   list-style: none;
 }
+
+#root {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 .top-level-view {
-  width: 80%;
-  margin: 10px auto;
+  padding: 20px 0;
+}
+
+.poke-detail-view > a {
+  position: absolute;
+  display: inline-block;
+  transform: rotate(90deg);
+  left: -1em;
+  top: 3em;
+}
+
+.poke-detail {
+  padding: 0 4em;
+}
+
+.poke-detail > h1 {
+}
+
+.poke-detail > p {
+  padding: 0 0.5em;
+  max-width: 15em;
+}
+
+.poke-detail > p::first-letter {
+  font-size: 200%;
+  font-family: fantasy;
+  color: green;
+}
+
+.poke-detail > img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 18em;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .poke-detail > img {
+    position: static;
+  }
+}
+
+.poke-list-view .search input {
+  width: 100%;
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  font-size: 1.5em;
 }
